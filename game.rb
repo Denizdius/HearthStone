@@ -45,12 +45,11 @@ class Game
         
         puts "Chose the cards you want to play..."
         sayac = 1
-        Card.cards_array.
-        each do |card|
-            if card.card_class == klass_choice
-                puts "#{sayac}. #{card.card_stats}"
-                sayac += 1
-            end
+        temp_card_array = Card.cards_array.select {|c| c.card_class == klass_choice || c.card_class == 'Normal'}
+
+        temp_card_array.each do |card|
+            puts "#{sayac}. #{card.card_stats}"
+            sayac += 1
         end
     end
 end

@@ -21,7 +21,7 @@ class Card
     end
 
     def card_stats
-        "[#{@crystal_cost}] - #{@name} (A: #{@attack_point} H:#{@health_point})"
+        "Cost: [#{@crystal_cost}] - #{@name} (A: #{@attack_point} H: #{@health_point})"
     end
 end
 
