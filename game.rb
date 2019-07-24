@@ -29,14 +29,19 @@ class Game
 
         puts "You have selected #{klass_choice} class. You have no chance to beat other player. Hahahaha..."
 
-        sayac = 1
-        Hero.heroes_array.
-            each do |hero|
-                if hero.character_class == klass_choice
-                    puts "#{sayac}. #{hero.character_name}"
-                    sayac += 1
-                end
-            end
+        temp_hero_array = Hero.heroes_array.select {|h| h.class == klass_choice}
+        sayac = 1 
+        temp_hero_array.each do |hero|
+            puts "#{sayac}. #{hero.name}"
+            sayac += 1
+        end
+        
+
+        print "Which one seems closer to you(Enter his/her number):"
+        hero_choice = temp_hero_array[gets.to_i - 1]
+        # hero_choice = Hero.find_hero(gets.to_i)
+        
+        puts "You have selected #{hero_choice.name}. #{hero_choice.speak(:selected)}"
         
         puts "Chose the cards you want to play..."
         sayac = 1
